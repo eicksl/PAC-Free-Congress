@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'candidates/img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'candidates/main.css' %}">
+    <title>PAC Free Congress</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav-header">
+            <a class="logo" href="{% url 'candidates:index' %}">
+                <img src="{% static 'candidates/img/logo.png' %}">
+            </a>
+            <div class="support-email">
+                <a class="support-email-text" href="mailto:spencer@pacfreecongress.com">
+                    spencer@pacfreecongress.com
+                </a>
+            </div>
+        </nav>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
