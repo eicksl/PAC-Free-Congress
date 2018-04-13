@@ -19,7 +19,7 @@ class Candidate(models.Model):
         db_table = 'candidate'
 
 
-class Primarydate(models.Model):
+class PrimaryDate(models.Model):
     key = models.IntegerField(primary_key=True)
     state = models.CharField(max_length=50)
     abbr = models.CharField(max_length=2)
