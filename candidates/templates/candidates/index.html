@@ -31,7 +31,7 @@
             <p class="search-location">
                 Where are you registered to vote?
             </p>
-            <form method="get" action="">
+            <form method="get" action="{% url 'candidates:results' %}">
                 <input id="search-input" type="text" name="address"
                 placeholder="Search by zip code, full address, or state">
                 <button id="search-btn" type="submit">Search candidates!</button>
@@ -45,7 +45,7 @@
             <p class="results-exp">
                 Candidates are selected using an automated algorithm that searches
                 all of the content across campaign website domains (excluding pages
-                devoted to press releases) and checks whether certain keyword
+                devoted to press coverage) and checks whether certain keyword
                 phrases are used. It is not perfect, and it's likely that there are
                 a few candidates included in the database who should not be, and
                 vice versa. You can help improve this resource by
