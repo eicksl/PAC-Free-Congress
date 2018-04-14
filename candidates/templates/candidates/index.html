@@ -1,58 +1,66 @@
 {% extends "candidates/main.html" %}
 {% block content %}
 
-    <main class="search-container">
-        <div class="search-content">
-            <h1 class="search-header">
-                Who on your ballot is not taking corporate PAC money?
-            </h1>
-            <p class="search-description">
-                The US Congress has become an open market for corporations to
-                buy legislative influence by funneling large sums of money to
-                campaigns via
-                <a class="pac-wiki"
-                href="https://en.wikipedia.org/wiki/Political_action_committee"
-                target="_blank">
-                    Political Action Committees.
-                </a>
-                Until enough of the incumbents annointed by this corrupt system
-                are replaced by candidates who finance grassroots campaigns
-                through small-dollar donations, it is unlikely that any
-                substantive
-                <a class="reform-wiki"
-                href="https://en.wikipedia.org/wiki/Campaign_finance_reform_in_the_United_States"
-                target="_blank">
-                    campaign finance reform
-                </a>
-                will be legislated. The first step toward a functioning
-                democracy is supporting the campaigns of congressional
-                candidates outside of the corrupt big money system.
-            <p>
-            <p class="search-location">
-                Where are you registered to vote?
-            </p>
-            <form method="get" action="{% url 'candidates:results' %}">
-                <input id="search-input" type="text" name="address"
-                placeholder="Search by full address or state">
-                <button id="search-btn" type="submit">Search candidates!</button>
-            </form>
-        </div>
-    </main>
+<main class="search-container">
+    <div class="search-content">
+        <h1 class="search-header">
+            Who on your ballot is not taking corporate PAC money?
+        </h1>
+        <p class="search-description">
+            The US Congress has become an open market for corporations to
+            buy legislative influence by funneling large sums of money to
+            campaigns via
+            <a class="pac-wiki"
+            href="https://en.wikipedia.org/wiki/Political_action_committee"
+            target="_blank">
+                Political Action Committees.
+            </a>
+            Until enough of the incumbents annointed by this corrupt system
+            are replaced by candidates who finance grassroots campaigns
+            through small-dollar donations, it is unlikely that any
+            substantive
+            <a class="reform-wiki"
+            href="https://en.wikipedia.org/wiki/Campaign_finance_reform_in_the_United_States"
+            target="_blank">
+                campaign finance reform
+            </a>
+            will be legislated. The first step toward a functioning
+            democracy is supporting the campaigns of congressional
+            candidates outside of the corrupt big money system.
+        <p>
+        <p class="search-location">
+            Where are you registered to vote?
+        </p>
+        <form method="get" action="{% url 'candidates:results' %}">
+            <input id="search-input" type="text" name="address"
+            placeholder="Search by full address or state">
+            <button id="search-btn" type="submit">Search candidates!</button>
+        </form>
+    </div>
+</main>
 
-    <section class="about">
-        <div class="about-content">
-            <h2 class="results-h">How are the right candidates determined?</h2>
-            <p class="results-exp">
-                Candidates are selected using an automated algorithm that searches
-                all of the content across campaign website domains (excluding pages
-                devoted to press coverage) and checks whether certain keyword
-                phrases are used. It is not perfect, and it's likely that there are
-                a few candidates included in the database who should not be, and
-                vice versa. You can help improve this resource by
-                <a href="mailto:spencer@pacfreecongress.com">reporting</a> such
-                errors as they are noticed and they will be manually corrected.
-            </p>
-        </div>
-    </section>
+<div class="error-msg">
+    {% if messages %}
+    {% for msg in messages %}
+    <li>{{msg}}</li>
+    {% endfor %}
+    {% endif %}
+</div>
+
+<section class="about">
+    <div class="about-content">
+        <h2 class="results-h">How are the right candidates determined?</h2>
+        <p class="results-exp">
+            Candidates are selected using an automated algorithm that searches
+            all of the content across campaign website domains (excluding pages
+            devoted to press coverage) and checks whether certain keyword
+            phrases are used. It is not perfect, and it's likely that there are
+            a few candidates included in the database who should not be, and
+            vice versa. You can help improve this resource by
+            <a href="mailto:spencer@pacfreecongress.com">reporting</a> such
+            errors as they are noticed and they will be manually corrected.
+        </p>
+    </div>
+</section>
 
 {% endblock %}

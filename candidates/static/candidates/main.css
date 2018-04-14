@@ -64,7 +64,7 @@ a {
 
 #search-btn {
   height: 50px;
-  width: 210px;
+  width: 215px;
   display: block;
   margin: 0 auto;
   color: white;
@@ -89,9 +89,16 @@ a {
 }
 
 .content .about .about-content {
-  margin: 65px 100px 50px 100px;
+  margin: 50px 100px 50px 100px;
 }
 
 .content .about .about-content .results-h {
   font-size: 18px;
+}
+
+.content .error-msg {
+  height: 25px;
+  margin-top: 6px;
+  font-weight: bold;
+  transform: translateX(8%)
 }

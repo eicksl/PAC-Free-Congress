@@ -26,15 +26,13 @@ class ResultsView(View):
     def get(self, request):
         template = 'candidates/results.html'
         address = request.GET.get('address', None)
-        if address is None:
-            messages.add_message(request, messages.INFO,
-                'Please enter a state or an address')
+        if not address:
+            messages.error(request, 'Please enter a state or an address')
             return redirect('candidates:index')
         try:
             abbr, district = self.addr_lookup(address)
         except AssertionError:
-            messages.add_message(request, messages.INFO,
-                'The state or address was not recognized')
+            messages.error(request, 'The state or address was not recognized')
             return redirect('candidates:index')
         if district is None:
             context = {
