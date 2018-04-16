@@ -3,13 +3,9 @@ from django.shortcuts import render, redirect
 #from django.views.generic.base import TemplateView
 from django.contrib import messages
 from django.views import View
+from candidates.constants import *
 from candidates.models import Candidate, PrimaryDate
 import requests
-
-
-GOOGLE_API_URI = 'https://www.googleapis.com/civicinfo/v2/representatives'
-GOOGLE_KEY = open('google_key.txt').read()
-AT_LARGE_STATES = set({'AK', 'DE', 'MT', 'ND', 'SD', 'VT', 'WY'})
 
 
 class IndexView(View):
@@ -44,7 +40,12 @@ class ResultsView(View):
                 'state_scope': False,
                 'results': self.district_scope(abbr, district)
             }
-        context.update({'primary_date': self.find_primary_date(abbr)})
+        context.update({
+            'primary_date': self.find_primary_date(abbr),
+            'state': STATES[abbr],
+            'at_large': abbr in AT_LARGE_STATES,
+            'district': district
+        })
         return render(request, template, context)
 
 
