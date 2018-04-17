@@ -1,7 +1,7 @@
 <section class="search-container">
     <div class="search-content">
         <h1 class="search-header results-search-header">
-            House - District {{district}}
+            House of Representatives
         </h1>
         <hr>
         {% for candidate in results.house %}
@@ -19,9 +19,9 @@
                 <div id="icon-divider"></div>
                     {% endif %}
                 <a href="{{candidate.twitter}}" target="_blank">
-                <div class="icon-wrapper">
-                    <i class="fab fa-twitter"></i>
-                </div>
+                    <div class="icon-wrapper">
+                        <i class="fab fa-twitter"></i>
+                    </div>
                 </a>
                 {% endif %}
             </div>
