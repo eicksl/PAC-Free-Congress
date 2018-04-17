@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background: url("img/background.png");
+  font-family: 'Raleway', sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top:
+  1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 30px;
+}
+
+.container {
+  margin: auto;
+  width: 700px;
+}
+
+.nav-header {
+  margin-top: 10px;
+}
+
+.nav-header .logo-wrapper {
+  display: inline-block;
+}
+
+.support-email {
+  float: right;
+  font-size: 1.1em;
+  transform: translateY(25px)
+}
+
+.support-email .support-email-text {
+  color: #3274EE;
+}
+
+.content .search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  margin-top: 30px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  box-shadow: 0 11px 22px 0 rgba(0,0,0,0.1);
+}
+
+.content .search-content {
+  margin: 40px 60px 40px 60px;
+}
+
+.content .search-content .search-location {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+#search-input {
+  width: 100%;
+  height: 50px;
+  font-size: 1.4em;
+  padding-left: 16px;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 5px 0 rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+}
+
+#search-input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.content .search-btn {
+  height: 50px;
+  width: 215px;
+  display: block;
+  margin: 0 auto;
+  color: white;
+  background: #17a2b8;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #9ecaed;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+}
+
+.content a.search-btn {
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content a.search-btn.results-end {
+  margin: 30px auto 30px auto;
+}
+
+.content .search-btn:hover {
+  background: #0f8598;
+  border-color: #9ecaed;
+}
+
+.content .search-btn:focus {
+  outline: none;
+  border-width: 3px;
+}
+
+.content .about .about-content {
+  margin: 50px 100px 50px 100px;
+}
+
+.content .about .about-content .results-h {
+  font-size: 18px;
+}
+
+.content .error-msg {
+  display: inline-block;
+  height: 25px;
+  margin-top: 6px;
+  font-weight: bold;
+  transform: translateX(8%)
+}
+
+header .primary-date {
+  font-size: 1.35em;
+  transform: translateY(10px);
+}
+
+header .results-header-desc {
+  font-size: 24px;
+  color: gray;
+}
+
+header .results-header-desc span {
+  color: black;
+}
+
+.search-container .search-content .results-search-header {
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 35px;
+  margin-top: 0;
+}
+
+.search-container .search-content .flex-container {
+  display: flex;
+}
+
+.search-container .search-content .flex-container .column-social-icons {
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.search-container .search-content .flex-container .column-social-icons a {
+  color: black;
+}
+
+.icon-wrapper {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  border-style: solid;
+  border-radius: 150px;
+  border-color: gray;
+}
+
+.icon-wrapper:hover {
+  cursor: pointer;
+  color: #03a9f4;
+  border-color: #03a9f4;
+}
+
+.fa-facebook-f,
+.fa-twitter {
+  font-size: 2em;
+}
+
+#icon-divider {
+  height: 8px;
+}
+
+#results-candidate-name {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#results-candidate-party {
+  margin-top: 0;
+}
+
+#results-candidate-url {
+  font-size: 1.22em;
+}
+
+#results-candidate-url:hover {
+  color: #02025d;
+}
+
+#candidate-divider {
+  height: 20px;
+}
+
+@media (max-width: 815px) {
+  .container {
+    max-width: 97%;
+  }
+}
+
+@media (max-width: 700px) {
+  .search-container {
+    padding-top: 20px;
+  }
+
+  .logo-wrapper {
+    display: block;
+  }
+
+  .support-email {
+    transform: translateY(0);
+    float: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .content .search-content {
+    margin: 0 15px 40px 15px;
+  }
+
+  .content .about .about-content {
+    margin: 15px 15px 30px 15px;
+  }
+}
