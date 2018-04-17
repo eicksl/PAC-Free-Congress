@@ -1,6 +1,4 @@
 from django.shortcuts import render, redirect
-#from django.http import HttpResponse
-#from django.views.generic.base import TemplateView
 from django.contrib import messages
 from django.views import View
 from candidates.constants import *
@@ -50,6 +48,7 @@ class ResultsView(View):
 
 
     def state_scope(self, abbr):
+        """Finds candidates state-wide."""
         if abbr in AT_LARGE_STATES:
             return self.district_scope(abbr, '0')
         house = Candidate.objects.filter(abbr=abbr, office__startswith='House')
@@ -66,6 +65,7 @@ class ResultsView(View):
 
 
     def district_scope(self, abbr, district):
+        """Finds candidats in a specific district."""
         house_office = 'House-' + district
         house = Candidate.objects.filter(abbr=abbr, office=house_office)
         return {
@@ -86,6 +86,8 @@ class ResultsView(View):
 
 
     def addr_lookup(self, address):
+        """Uses the Google Civic Information API to return the state and
+        district (if available) for the user's search query."""
         params = {'key': GOOGLE_KEY,'address': address}
         resp = requests.get(GOOGLE_API_URI, params)
         assert resp.status_code == 200
@@ -93,28 +95,10 @@ class ResultsView(View):
         abbr = resp_json['normalizedInput']['state']
         if abbr in AT_LARGE_STATES:
             return abbr, '0'
-
-
-
         try:
             val = list(resp_json['divisions'].keys())[2].rsplit(':', 1)[1]
             int(val)
             district = val
         except (IndexError, ValueError):
             district = None
-
-
-
-        """
-        if resp_json['normalizedInput']['zip']:
-            for key in resp_json['divisions'].keys():
-                val = key.rsplit(':', 1)[1]
-                try:
-                    int(val)
-                except ValueError:
-                    continue
-                district = val
-        else:
-            district = None
-        """
         return abbr, district
