@@ -1,5 +1,5 @@
 GOOGLE_API_URI = 'https://www.googleapis.com/civicinfo/v2/representatives'
-GOOGLE_KEY = open('google_key.txt').read()
+GOOGLE_KEY = open('/var/www/PAC-Free-Congress/google_key.txt').read()
 AT_LARGE_STATES = set({'AK', 'DE', 'MT', 'ND', 'SD', 'VT', 'WY'})
 STATES = {
     'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas',
