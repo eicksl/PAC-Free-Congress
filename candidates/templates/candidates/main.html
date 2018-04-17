@@ -17,9 +17,11 @@
 <body>
     <div class="container">
         <nav class="nav-header">
-            <a class="logo" href="{% url 'candidates:index' %}">
-                <img src="{% static 'candidates/img/logo.png' %}">
-            </a>
+            <div class = "logo-wrapper">
+                <a class="logo" href="{% url 'candidates:index' %}">
+                    <img src="{% static 'candidates/img/logo.png' %}">
+                </a>
+            </div>
             <div class="support-email">
                 <a class="support-email-text" href="mailto:spencer@pacfreecongress.com">
                     spencer@pacfreecongress.com

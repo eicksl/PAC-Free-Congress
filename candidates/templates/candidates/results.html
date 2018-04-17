@@ -1,0 +1,54 @@
+{% extends "candidates/main.html" %}
+
+{% block content %}
+{% if not results.senate and not results.house %}
+
+<main class="search-container">
+    <div class="search-content">
+        <h1 class="search-header">
+            Looks like no one on your ballot is talking about the need to fix
+            money in politics. Have you considered running for Congress
+            yourself?
+        </h1>
+        <a class="search-btn" href="{% url 'candidates:index' %}" role="button">
+            Back to main
+        </a>
+    </div>
+</main>
+
+{% else %}
+
+<header class="results-header">
+    <pre class="primary-date"><i>Primary election date:</i> {{primary_date}}</pre>
+    <h1 class="results-header-desc">
+        Showing candidates speaking out against money in politics in
+        <span id="search-scope">
+            {% if at_large %}
+                {{state}}'s At-Large District
+            {% else %}
+                {{state}}{% if district %}, District {{district}}{% endif %}
+            {% endif %}
+        </span>
+    </h1>
+</header>
+
+{% if results.senate %}
+    {% include "candidates/results_senate.html" %}
+{% endif %}
+
+{% if state_scope %}
+    {% for district, candidates in results.house %}
+        {% include "candidates/results_house_state.html" %}
+    {% endfor %}
+{% else %}
+    {% if results.house %}
+        {% include "candidates/results_house_district.html" %}
+    {% endif %}
+{% endif %}
+
+<a class="search-btn results-end" href="{% url 'candidates:index' %}" role="button">
+    Back to main
+</a>
+
+{% endif %}
+{% endblock %}

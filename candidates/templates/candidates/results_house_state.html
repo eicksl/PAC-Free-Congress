@@ -1,0 +1,45 @@
+<section class="search-container">
+    <div class="search-content">
+        <h1 class="search-header results-search-header">
+            House - District {{district}}
+        </h1>
+        <hr>
+        {% for candidate in candidates %}
+        <div class="flex-container">
+            <div class="column-social-icons">
+                {% if candidate.facebook %}
+                <a href="{{candidate.facebook}}" target="_blank">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                </a>
+                {% endif %}
+                {% if candidate.twitter %}
+                    {% if candidate.facebook %}
+                <div id="icon-divider"></div>
+                    {% endif %}
+                <a href="{{candidate.twitter}}" target="_blank">
+                <div class="icon-wrapper">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                </a>
+                {% endif %}
+            </div>
+            <div class="column-main-info">
+                <h2 id="results-candidate-name"> {{candidate.name}} </h2>
+                <h3 id="results-candidate-party"> {{candidate.party}} </h3>
+                <h3>
+                    <a id="results-candidate-url" href="{{candidate.campaign_url}}"
+                    target="_blank">
+                        Campaign Website
+                    </a>
+                </h3>
+            </div>
+        </div>
+        {% if not forloop.last %}
+        <div id="candidate-divider"></div>
+        <hr>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>

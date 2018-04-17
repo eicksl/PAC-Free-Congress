@@ -43,6 +43,10 @@ hr {
   margin-top: 10px;
 }
 
+.nav-header .logo-wrapper {
+  display: inline-block;
+}
+
 .support-email {
   float: right;
   font-size: 1.1em;
@@ -238,12 +242,13 @@ header .results-header-desc span {
     padding-top: 20px;
   }
 
-  .logo {
+  .logo-wrapper {
     display: block;
   }
+
   .support-email {
     transform: translateY(0);
-    float: left;
+    float: none;
   }
 }
 
