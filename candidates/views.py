@@ -23,6 +23,8 @@ class ResultsView(View):
         if not address:
             messages.error(request, 'Please enter a state or an address')
             return redirect('candidates:index')
+        elif address.upper() in STATES:
+            address = STATES[address.upper()]
         try:
             abbr, district = self.addr_lookup(address)
         except AssertionError:
