@@ -21,8 +21,12 @@ body {
 }
 
 a {
-  color: blue;
   text-decoration: none;
+}
+
+a:hover {
+  color: #02025d;
+  font-weight: bold;
 }
 
 hr {
@@ -223,10 +227,6 @@ header .results-header-desc span {
   font-size: 1.22em;
 }
 
-#results-candidate-url:hover {
-  color: #02025d;
-}
-
 #candidate-divider {
   height: 20px;
 }
@@ -259,5 +259,11 @@ header .results-header-desc span {
 
   .content .about .about-content {
     margin: 15px 15px 30px 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .content .search-btn {
+    height: 65px;
   }
 }
